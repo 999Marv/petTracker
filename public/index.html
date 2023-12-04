@@ -9,29 +9,42 @@
   <body>
     <h1>Pet Tracker</h1>
 
-    <form>
+    <form id="new-pet-form" aria-labelledby="pet form">
       <label>
         Pet Name:
-        <input type="text" name="" id="" />
+        <input type="text" name="" id="" required />
       </label>
 
       <label>
         Profile Picture:
-        <input type="text" name="" id="" />
+        <input type="text" name="" id="" required />
       </label>
 
-      <fieldset></fieldset>
+      <fieldset>
+        <legend>Species</legend>
+        <label>
+          <input type="radio" name="species" id="cat" value="Cat" />
+          Cat
+        </label>
+        <label for="dog">
+          <input type="radio" name="species" id="dog" value="Dog" />
+          Dog
+        </label>
+        <label>
+          <input type="radio" name="species" id="bird" value="Bird" />
+          Bird
+        </label>
+      </fieldset>
 
       <label>
         <input type="checkbox" name="" id="" />
         Are they friendly?
       </label>
+
+      <button type="submit">Add Pet!</button>
     </form>
 
-    <!-- <label>
-      Name:
-      <input type="text" name="subName" id="sub-name" required />
-    </label> -->
+    <h2>Pet List</h2>
   </body>
 
   <style>

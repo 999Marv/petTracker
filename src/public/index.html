@@ -7,52 +7,85 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Pet Tracker</h1>
+    <main>
+      <h1>Pet Tracker</h1>
 
-    <form id="new-pet-form" aria-labelledby="pet form">
-      <label>
-        Pet Name<sup>*</sup>:
-        <input type="text" name="name" id="" required />
-      </label>
-
-      <label>
-        Profile Picture<sup>*</sup>:
-        <input
-          type="text"
-          name="url"
-          id=""
-          placeholder="Picture Url"
-          required
-        />
-      </label>
-
-      <fieldset>
-        <legend>Species<sup>*</sup></legend>
+      <form id="new-pet-form" aria-labelledby="pet form">
         <label>
-          <input type="radio" name="species" id="cat" value="Cat" />
-          Cat
+          Pet Name<sup>*</sup>:
+          <input type="text" name="name" id="" required />
         </label>
-        <label for="dog">
-          <input type="radio" name="species" id="dog" value="Dog" />
-          Dog
-        </label>
+
         <label>
-          <input type="radio" name="species" id="bird" value="Bird" />
-          Bird
+          Profile Picture<sup>*</sup>:
+          <input
+            type="text"
+            name="url"
+            id=""
+            placeholder="Picture Url"
+            required
+          />
         </label>
-      </fieldset>
 
-      <label>
-        <input type="checkbox" name="friendly" id="" />
-        Are they friendly?
-      </label>
+        <fieldset>
+          <legend>Species<sup>*</sup></legend>
+          <label>
+            <input type="radio" name="species" id="cat" value="Cat" />
+            Cat
+          </label>
+          <label for="dog">
+            <input type="radio" name="species" id="dog" value="Dog" />
+            Dog
+          </label>
+          <label>
+            <input type="radio" name="species" id="bird" value="Bird" />
+            Bird
+          </label>
+        </fieldset>
 
-      <button type="submit">Add Pet!</button>
-    </form>
+        <label>
+          <input type="checkbox" name="friendly" id="" />
+          Are they friendly?
+        </label>
 
-    <h2>Pet List</h2>
+        <button type="submit">Add Pet!</button>
+      </form>
 
-    <ul id="pet-list"></ul>
+      <h2>Pet List</h2>
+
+      <ul id="pet-list">
+        <li>
+          <h3>Fluffy</h3>
+          <img
+            src="https://img.freepik.com/free-photo/red-white-cat-i-white-studio_155003-13189.jpg?w=2000"
+            alt=""
+          />
+          <p>Not so friendly</p>
+          <p>Species: Cat</p>
+          <button>Remove</button>
+        </li>
+        <li>
+          <h3>Fluffy</h3>
+          <img
+            src="https://img.freepik.com/free-photo/red-white-cat-i-white-studio_155003-13189.jpg?w=2000"
+            alt=""
+          />
+          <p>Not so friendly</p>
+          <p>Species: Cat</p>
+          <button>Remove</button>
+        </li>
+        <li>
+          <h3>Fluffy</h3>
+          <img
+            src="https://img.freepik.com/free-photo/red-white-cat-i-white-studio_155003-13189.jpg?w=2000"
+            alt=""
+          />
+          <p>Not so friendly</p>
+          <p>Species: Cat</p>
+          <button>Remove</button>
+        </li>
+      </ul>
+    </main>
   </body>
 
   <style>

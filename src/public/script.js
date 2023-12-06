@@ -27,10 +27,12 @@ const petTemplate = (name, url, species, friendly) => {
  <h3>${name}</h3>
   <img
     src="${url}"
-    alt="Pet picture"/>
+    alt="${name}"/>
   <p>${friendly}</p>
   <p>Species: ${species}</p>
 `;
+
+  li.dataset.id = 'hi';
 
   const button = document.createElement('button');
   button.textContent = 'remove';

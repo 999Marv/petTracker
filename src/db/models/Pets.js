@@ -22,6 +22,17 @@ class Pets {
       return null;
     }
   }
+
+  static async remove(id) {
+    try {
+      const query = `DELETE FROM pets WHERE id = (?)`;
+      const res = await knex.raw(query, [id]);
+      return res.rows || null;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
 }
 
 module.exports = Pets;

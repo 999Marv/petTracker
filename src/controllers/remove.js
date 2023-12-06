@@ -1,10 +1,10 @@
 const remove = async (req, res) => {
   const {
-    ToDo,
+    Pets,
     params: { id },
   } = req;
 
-  const result = await ToDo.delete(Number(id));
+  const result = await Pets.remove(Number(id));
   res.sendStatus(result ? 204 : 404);
 };
 

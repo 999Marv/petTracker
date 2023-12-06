@@ -21,7 +21,7 @@ const fetchData = async (url, options) => {
 };
 
 //Pet templates
-const petTemplate = (name, url, species, friendly) => {
+const petTemplate = (id, name, url, species, friendly) => {
   const li = document.createElement('li');
   li.innerHTML = `
  <h3>${name}</h3>
@@ -32,12 +32,16 @@ const petTemplate = (name, url, species, friendly) => {
   <p>Species: ${species}</p>
 `;
 
-  li.dataset.id = 'hi';
+  li.dataset.id = id;
 
   const button = document.createElement('button');
   button.textContent = 'remove';
 
-  button.addEventListener('click', () => console.log('hi'));
+  button.addEventListener('click', () => {
+    fetchData(`/pets${id}`, { method: 'DELETE' });
+
+    li.remove();
+  });
 
   li.append(button);
 
@@ -60,9 +64,6 @@ const handleForm = async (e) => {
     dataFriendly = false;
   }
 
-  petList.append(petTemplate(name, url, species, isFriendly));
-
-  //post request
   const postBody = getOptsWithBody({
     name,
     url,
@@ -70,7 +71,9 @@ const handleForm = async (e) => {
     friendly: dataFriendly,
   });
 
-  fetchData('/pets', postBody);
+  const [petArr] = await fetchData('/pets', postBody);
+
+  petList.append(petTemplate(petArr.id, name, url, species, isFriendly));
 
   form.reset();
 };
@@ -88,7 +91,13 @@ const loadPets = async () => {
       : (isFriendly = 'Not so friendly');
 
     petList.append(
-      petTemplate(pet.pet_name, pet.picture_url, pet.species, isFriendly)
+      petTemplate(
+        pet.id,
+        pet.pet_name,
+        pet.picture_url,
+        pet.species,
+        isFriendly
+      )
     );
   });
 };

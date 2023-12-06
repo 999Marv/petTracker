@@ -7,5 +7,6 @@ const router = express.Router();
 router.use(addModels);
 
 router.post('/pets', controllers.create); // create Pet
+router.get('/pets', controllers.list); // list all pets
 
 module.exports = router;

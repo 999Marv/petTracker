@@ -12,7 +12,16 @@ class Pets {
     }
   }
 
-  static async list() {}
+  static async list() {
+    try {
+      const query = `SELECT * FROM pets`;
+      const res = await knex.raw(query);
+      return res;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
 }
 
 module.exports = Pets;

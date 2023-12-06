@@ -14,10 +14,6 @@ app.use(staticAssets);
 
 app.use(routes);
 
-app.get('/pet', (req, res) => {
-  res.send({ msg: 'hi' });
-});
-
 app.listen(PORT, () => {
   console.log(`Server is now running on http://localhost:${PORT}`);
 });

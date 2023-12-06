@@ -51,7 +51,6 @@ const handleForm = async (e) => {
   let isFriendly = '';
   let dataFriendly = true;
 
-  friendly ? (isFriendly = 'Friendly pet!') : (isFriendly = 'Not so friendly');
   if (friendly) {
     isFriendly = 'Friendly pet!';
   } else {
@@ -75,3 +74,25 @@ const handleForm = async (e) => {
 };
 
 form.addEventListener('submit', handleForm);
+
+//Load Initial Pets
+
+const loadPets = async () => {
+  const data = (await fetchData('/pets'))[0].rows;
+  data.forEach((pet) => {
+    let isFriendly = '';
+    pet.is_friendly
+      ? (isFriendly = 'Friendly pet!')
+      : (isFriendly = 'Not so friendly');
+
+    petList.append(
+      petTemplate(pet.pet_name, pet.picture_url, pet.species, isFriendly)
+    );
+  });
+};
+
+const main = () => {
+  loadPets();
+};
+
+main();
